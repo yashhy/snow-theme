@@ -40,7 +40,7 @@ That's it! Your website now has beautiful falling snowflakes! ❄️
     <!-- Your website content -->
 
     <!-- Add Snow Theme -->
-    <script src="https://[your-username].github.io/snow-theme/snow.js"></script>
+    <script src="https://ddosnotification.github.io/snow-theme/snow.js"></script>
 </body>
 </html>
 ```
