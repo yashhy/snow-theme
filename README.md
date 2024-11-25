@@ -77,7 +77,7 @@ SnowTheme.config = {
 
 #### Heavy Snow
 ```html
-<script src="https://ddosnotificatiom.github.io/snow-theme/snow.js"></script>
+<script src="https://ddosnotification.github.io/snow-theme/snow.js"></script>
 <script>
     SnowTheme.config.density = 100;
     SnowTheme.config.interval = 100;
