@@ -112,6 +112,10 @@ If snowflakes appear behind your content, adjust the z-index:
 SnowTheme.config.zIndex = 1000000;
 ```
 
+## 🎮 Demo
+
+Check out the live demo: [https://ddosnotification.github.io/snow-theme/demo.html](https://ddosnotification.github.io/snow-theme/demo.html)
+
 ## 💡 Use Cases
 
 Perfect for:
