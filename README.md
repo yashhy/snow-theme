@@ -51,15 +51,15 @@ That's it! Your website now has beautiful falling snowflakes! ❄️
 ```javascript
 // Default configuration
 SnowTheme.config = {
-    snowflakes: ['❄', '❅', '❆'],      // Snowflake characters
-    density: 50,                        // Maximum number of snowflakes
-    interval: 200,                      // How often new snowflakes are created (ms)
-    minSize: 0.8,                      // Minimum snowflake size
-    maxSize: 1.5,                      // Maximum snowflake size
-    minDuration: 5,                    // Minimum fall duration (seconds)
-    maxDuration: 15,                   // Maximum fall duration (seconds)
-    wind: 20,                          // Wind effect strength
-    zIndex: 999999                     // Layer level of snowflakes
+snowflakes: ['❄', '❅', '❆'],      // Snowflake characters
+density: 50,                        // Maximum number of snowflakes
+interval: 200,                      // How often new snowflakes are created (ms)
+minSize: 0.8,                      // Minimum snowflake size
+maxSize: 1.5,                      // Maximum snowflake size
+minDuration: 5,                    // Minimum fall duration (seconds)
+maxDuration: 15,                   // Maximum fall duration (seconds)
+wind: 20,                          // Wind effect strength
+zIndex: 999999                     // Layer level of snowflakes
 }
 ```
 
