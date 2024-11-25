@@ -166,8 +166,6 @@ If you find this project useful, please consider:
 
 Have questions? Found a bug? Please [open an issue](https://github.com/ddosnotification/snow-theme/issues)!
 
-<div align="center">
 ---
 
-  Made with ❄️ by ZeX
-</div>
+Made with ❄️ by ZeX
