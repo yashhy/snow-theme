@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❄️ Snow Theme Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .demo-controls {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .control-group {
+            margin-bottom: 1rem;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-display {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .code-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+        }
+
+        .github-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>❄️ Snow Theme Demo</h1>
+        <p>Add beautiful snowfall to your website with a single line of code!</p>
+    </header>
+
+    <main class="container">
+        <div class="demo-controls">
+            <h2>✨ Customize Snow Effect</h2>
+            
+            <div class="control-group">
+                <label for="density">Snow Density</label>
+                <input type="range" id="density" min="10" max="200" value="50">
+                <span class="value-display" id="density-value">50</span>
+            </div>
+
+            <div class="control-group">
+                <label for="speed">Fall Speed (seconds)</label>
+                <input type="range" id="speed" min="2" max="20" value="10">
+                <span class="value-display" id="speed-value">10s</span>
+            </div>
+
+            <div class="control-group">
+                <label for="size">Snowflake Size</label>
+                <input type="range" id="size" min="5" max="30" value="15">
+                <span class="value-display" id="size-value">1.5</span>
+            </div>
+
+            <div class="control-group">
+                <label for="wind">Wind Effect</label>
+                <input type="range" id="wind" min="0" max="100" value="20">
+                <span class="value-display" id="wind-value">20</span>
+            </div>
+
+            <div class="preset-buttons">
+                <button onclick="setPreset('light')">Light Snow</button>
+                <button onclick="setPreset('heavy')">Heavy Snow</button>
+                <button onclick="setPreset('blizzard')">Blizzard</button>
+                <button onclick="setPreset('gentle')">Gentle Snow</button>
+            </div>
+        </div>
+
+        <div class="code-section">
+            <h2>🚀 Quick Start</h2>
+            <div class="code-block">
+&lt;!-- Add this line before closing body tag --&gt;
+&lt;script src="https://[your-username].github.io/snow-theme/snow.js"&gt;&lt;/script&gt;</div>
+        </div>
+
+        <div class="code-section">
+            <h2>⚙️ Customization</h2>
+            <div class="code-block">
+&lt;script&gt;
+    // Customize the snow effect
+    SnowTheme.config.density = 50;     // Number of snowflakes
+    SnowTheme.config.minDuration = 5;  // Fall speed (seconds)
+    SnowTheme.config.maxSize = 1.5;    // Maximum size
+    SnowTheme.config.wind = 20;        // Wind effect
+&lt;/script&gt;</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Made with ❄️ by [Your Name]</p>
+        <a href="https://github.com/[your-username]/snow-theme" class="github-link" target="_blank">View on GitHub</a>
+    </footer>
+
+    <!-- Add Snow Theme -->
+    <script src="https://ddosnotification.github.io/snow-theme/snow.js"></script>
+
+    <script>
+        // Demo controls functionality
+        function updateValue(inputId, value) {
+            document.getElementById(`${inputId}-value`).textContent = value;
+        }
+
+        function setPreset(type) {
+            switch(type) {
+                case 'light':
+                    SnowTheme.config.density = 30;
+                    SnowTheme.config.minDuration = 8;
+                    SnowTheme.config.maxSize = 1.2;
+                    SnowTheme.config.wind = 10;
+                    break;
+                case 'heavy':
+                    SnowTheme.config.density = 100;
+                    SnowTheme.config.minDuration = 5;
+                    SnowTheme.config.maxSize = 2;
+                    SnowTheme.config.wind = 30;
+                    break;
+                case 'blizzard':
+                    SnowTheme.config.density = 200;
+                    SnowTheme.config.minDuration = 3;
+                    SnowTheme.config.maxSize = 2.5;
+                    SnowTheme.config.wind = 50;
+                    break;
+                case 'gentle':
+                    SnowTheme.config.density = 40;
+                    SnowTheme.config.minDuration = 10;
+                    SnowTheme.config.maxSize = 1.5;
+                    SnowTheme.config.wind = 5;
+                    break;
+            }
+            // Update sliders to match preset
+            updateSliders();
+        }
+
+        // Handle slider inputs
+        document.getElementById('density').addEventListener('input', function(e) {
+            SnowTheme.config.density = parseInt(e.target.value);
+            updateValue('density', e.target.value);
+        });
+
+        document.getElementById('speed').addEventListener('input', function(e) {
+            SnowTheme.config.minDuration = parseInt(e.target.value);
+            updateValue('speed', e.target.value + 's');
+        });
+
+        document.getElementById('size').addEventListener('input', function(e) {
+            SnowTheme.config.maxSize = e.target.value / 10;
+            updateValue('size', (e.target.value / 10).toFixed(1));
+        });
+
+        document.getElementById('wind').addEventListener('input', function(e) {
+            SnowTheme.config.wind = parseInt(e.target.value);
+            updateValue('wind', e.target.value);
+        });
+
+        function updateSliders() {
+            const config = SnowTheme.config;
+            
+            document.getElementById('density').value = config.density;
+            document.getElementById('speed').value = config.minDuration;
+            document.getElementById('size').value = config.maxSize * 10;
+            document.getElementById('wind').value = config.wind;
+            
+            updateValue('density', config.density);
+            updateValue('speed', config.minDuration + 's');
+            updateValue('size', config.maxSize.toFixed(1));
+            updateValue('wind', config.wind);
+        }
+    </script>
+</body>
+</html>
