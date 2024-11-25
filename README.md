@@ -6,10 +6,6 @@
   ![Size](https://img.shields.io/badge/size-2.5kb-brightgreen.svg)
   ![Pure JS](https://img.shields.io/badge/pure-javascript-yellow.svg)
 
-  <br/>
-  <img src="/preview/screenshot.png" alt="Snow Theme Demo"/>
-</div>
-
 ---
 
 ## ✨ Features
