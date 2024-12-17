@@ -3,7 +3,9 @@
  * https://github.com/ddosnotification/snow-theme
  * MIT License
  */
-(function() {
+(function () {
+    let stopSnowFallInterval = null;
+    let isItSnowing = false;
     // Create and inject CSS
     const styleSheet = document.createElement("style");
     styleSheet.textContent = `
@@ -89,33 +91,49 @@
         setTimeout(() => snowflake.remove(), duration * 1000);
     }
 
-    // Start snowfall effect
-    function startSnowfall() {
-        // Create initial batch
-        for (let i = 0; i < 10; i++) createSnowflake();
-        
-        // Continue creating snowflakes
-        setInterval(createSnowflake, config.interval);
-    }
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        const snowflakes = container.getElementsByClassName('snowflake');
+    function resize() {
+      const snowflakes = container.getElementsByClassName('snowflake');
         for (let flake of snowflakes) {
             if (parseInt(flake.style.left) > window.innerWidth) {
                 flake.style.left = Math.random() * window.innerWidth + 'px';
             }
         }
-    });
+    }
+
+    // Start snowfall effect
+    function startSnowfall() {
+      isItSnowing = true;
+      // Create initial batch
+      for (let i = 0; i < 10; i++) createSnowflake();
+
+      // Continue creating snowflakes
+      stopSnowFallInterval = setInterval(createSnowflake, config.interval);
+      // Handle window resize
+      window.addEventListener('resize', resize);
+    }
+
+    // Stop the effect
+    function stopSnowfall() {
+        window.removeEventListener('resize', resize);
+        clearInterval(stopSnowFallInterval);
+        container.innerHTML = '';
+        isItSnowing = false;
+    }
 
     // Start the effect
     startSnowfall();
+
+    function isSnowing() {
+        return isItSnowing;
+    }
 
     // Expose configuration to window for customization
     window.SnowTheme = {
         config: config,
         container: container,
+        isSnowing: isSnowing,
         start: startSnowfall,
-        createSnowflake: createSnowflake
+        createSnowflake: createSnowflake,
+        stop: stopSnowfall
     };
 })();

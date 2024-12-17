@@ -65,6 +65,30 @@
             font-family: monospace;
         }
 
+        .control-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-self: center;
+        }
+
+        .start-button:not(:disabled) {
+            background: #4c914c;
+        }
+
+        .start-button:disabled {
+            cursor: not-allowed;
+        }
+
+        .stop-button:not(:disabled) {
+            background: #db5353;
+        }
+
+        .stop-button:disabled {
+            cursor: not-allowed;
+        }
+
+
         .preset-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -171,6 +195,10 @@
                 <span class="value-display" id="wind-value">20</span>
             </div>
 
+            <div class="control-buttons">
+                <button onclick="startSnow()" class="start-button">Start</button>
+                <button onclick="stopSnow()" class="stop-button">Stop</button>
+            </div>
             <div class="preset-buttons">
                 <button onclick="setPreset('light')">Light Snow</button>
                 <button onclick="setPreset('heavy')">Heavy Snow</button>
@@ -205,9 +233,24 @@
     </footer>
 
     <!-- Add Snow Theme -->
-    <script src="https://ddosnotification.github.io/snow-theme/snow.js"></script>
+    <script src="snow.js"></script>
 
     <script>
+        function startSnow() {
+            SnowTheme.start();
+            updateButton()
+        }
+
+        function stopSnow() {
+            SnowTheme.stop();
+            updateButton()
+        }
+
+        function updateButton() {
+            document.getElementsByClassName('start-button')[0].disabled = SnowTheme.isSnowing()
+            document.getElementsByClassName('stop-button')[0].disabled = !SnowTheme.isSnowing()
+        }
+
         // Demo controls functionality
         function updateValue(inputId, value) {
             document.getElementById(`${inputId}-value`).textContent = value;
@@ -278,6 +321,8 @@
             updateValue('size', config.maxSize.toFixed(1));
             updateValue('wind', config.wind);
         }
+
+        updateButton()
     </script>
 </body>
 </html>
